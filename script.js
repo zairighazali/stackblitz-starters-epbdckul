@@ -29,7 +29,7 @@
       nextBtn.style.display = "inline-block";
     } else {
       document.getElementById('result-2').innerHTML = `❌ Salah... Cuba lagi! <br>
-      <img src="comel.JPG" alt="" width="120"/>`;
+      <img src="comel2.JPG" alt="" width="120"/>`;
       nextBtn.style.display = "none";
     }
     }
