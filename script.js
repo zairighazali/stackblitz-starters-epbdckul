@@ -4,16 +4,19 @@
       const result = document.getElementById('result');
       const nextBtn = document.getElementById('nextBtn');
       if (answer.toLowerCase() == '30') {
-        document.getElementById('result').innerHTML = '✅ Betul! Awak Hebat!'
+        document.getElementById('result').innerHTML = `✅ Betul! Awak Hebat! <br>
+        <img src="comel.JPG" alt="" width="120"/>`;
         nextBtn.style.display = "inline-block";
       } else {
-        document.getElementById('result').innerHTML = '❌ Salah... Cuba lagi!';
+        document.getElementById('result').innerHTML = `❌ Salah... Cuba lagi! <br>
+        <img src="comel2.JPG" alt="" width="120"/>` ;
         nextBtn.style.display = "none";
       }
-    }
-      function goNext1() {
+    } 
+    function goNext1() {
       window.location.href = "page2.html";
-    }
+      }
+
   
 
     function checkAnswer2() {
@@ -21,10 +24,12 @@
       const result = document.getElementById('result');
       const nextBtn = document.getElementById('nextBtn');
       if (answer.toLowerCase() == '93') {
-      document.getElementById('result-2').innerHTML = '✅ Betul! Awak Hebat!'
+      document.getElementById('result-2').innerHTML = `✅ Betul! Awak Hebat! <br>
+      <img src="comel.JPG" alt="" width="120"/>`;
       nextBtn.style.display = "inline-block";
     } else {
-      document.getElementById('result-2').innerHTML = '❌ Salah... Cuba lagi!';
+      document.getElementById('result-2').innerHTML = `❌ Salah... Cuba lagi! <br>
+      <img src="comel.JPG" alt="" width="120"/>`;
       nextBtn.style.display = "none";
     }
     }
@@ -38,10 +43,12 @@
     const nextBtn = document.getElementById('nextBtn');
 
   if (answer.toLowerCase() == '60') {
-    document.getElementById('result-3').innerHTML = '✅ Betul! Awak Hebat!'
+    document.getElementById('result-3').innerHTML = `✅ Betul! Awak Hebat! <br>
+    <img src="comel.JPG" alt="" width="120"/>`;
     nextBtn.style.display = "inline-block";
   } else {
-    document.getElementById('result-3').innerHTML = '❌ Salah... Cuba lagi!';
+    document.getElementById('result-3').innerHTML = `❌ Salah... Cuba lagi! <br>
+    <img src="comel2.JPG" alt="" width="120"/>`;
     nextBtn.style.display = "none";
   }
   }
