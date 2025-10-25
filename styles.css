@@ -19,7 +19,9 @@ button {
   border: none;
   border-radius: 5px;
 }
-img {
-  width: 150px;
+#nextBtn { display: none; }
+
+#result img {
   margin-top: 10px;
+  border-radius: 10px;
 }
