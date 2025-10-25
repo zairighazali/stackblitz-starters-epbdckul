@@ -56,3 +56,45 @@ function goNext3() {
   window.location.href = "page4.html";
 }
   
+
+// --- Timer setup ---
+let startTime;
+let timerInterval;
+let elapsedTime = 0;
+
+// Semak kalau dah ada masa tersimpan dalam localStorage
+if (localStorage.getItem("examElapsedTime")) {
+  elapsedTime = parseInt(localStorage.getItem("examElapsedTime"));
+}
+
+// Mula timer bila page dibuka
+function startTimer() {
+  startTime = Date.now() - elapsedTime;
+  timerInterval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+  elapsedTime = Date.now() - startTime;
+  localStorage.setItem("examElapsedTime", elapsedTime); // Simpan masa terkini
+
+  let totalSeconds = Math.floor(elapsedTime / 1000);
+  let hours = Math.floor(totalSeconds / 3600);
+  let minutes = Math.floor((totalSeconds % 3600) / 60);
+  let seconds = totalSeconds % 60;
+
+  document.getElementById("timer").textContent =
+    `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+
+// Hentikan timer (bila pelajar habis jawab)
+function stopTimer() {
+  clearInterval(timerInterval);
+  localStorage.setItem("examElapsedTime", elapsedTime);
+}
+
+// Bila halaman ditutup atau bertukar, hentikan timer
+window.addEventListener("beforeunload", stopTimer);
+
+// Mula timer automatik bila page load
+window.onload = startTimer;
+
