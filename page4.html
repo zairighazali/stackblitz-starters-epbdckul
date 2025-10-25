@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ujian Tamat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    #masaAkhir {
+      font-size: 2em;
+      font-weight: bold;
+      color: #2a7;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Tahniah! Anda telah menamatkan ujian 🎉</h1>
+  <p>Jumlah masa yang diambil:</p>
+  <div id="masaAkhir">--:--:--</div>
+
+  <button onclick="mulaBaru()">Mula Ujian Baru</button>
+
+  <script>
+  // Berhenti timer kalau masih berjalan (sekadar jaga-jaga)
+  window.addEventListener("load", function() {
+    // Dapatkan masa dari localStorage
+    let elapsedTime = localStorage.getItem("examElapsedTime");
+    if (elapsedTime) {
+      elapsedTime = parseInt(elapsedTime);
+
+      let totalSeconds = Math.floor(elapsedTime / 1000);
+      let hours = Math.floor(totalSeconds / 3600);
+      let minutes = Math.floor((totalSeconds % 3600) / 60);
+      let seconds = totalSeconds % 60;
+
+      document.getElementById("masaAkhir").textContent =
+        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    } else {
+      document.getElementById("masaAkhir").textContent = "00:00:00";
+    }
+  });
+
+  // Fungsi untuk mula semula ujian
+  function mulaBaru() {
+    localStorage.removeItem("examElapsedTime");
+    window.location.href = "index.html";
+  }
+  </script>
+
+</body>
+</html>
